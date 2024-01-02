@@ -1,15 +1,25 @@
-import { View, Text,StyleSheet,Image,ScrollView } from 'react-native'
-import React from 'react'
+import { View, Text,StyleSheet,Image,ScrollView,Modal,TouchableOpacity } from 'react-native'
+import React, { useState } from 'react';
 import ImageIconComponent from '../Components/ImageIconComponent'
 import TextInputComponent from '../Components/TextInputComponent'
 import TrendingCardComponent from '../Components/TrendingCardComponent'
 import RecommendedCardComponent from '../Components/RecommendedCardComponent'
+import BottomModal from '../Components/BottomModal';
+
 
 
 
 export default function HomeScreen() {
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const openModal = () => setModalVisible(true);
+  const closeModal = () => setModalVisible(false);
+
+
   return (
+    
     <View style={styles.component}>
+      
       <View style={styles.box1}>
         <ImageIconComponent source={require("../assets/profile.jpg")}/>
         <Text style={styles.text}>Choose Movies</Text>
@@ -21,30 +31,52 @@ export default function HomeScreen() {
       <Text style={styles.text2}>Trending Now</Text>
 
       <View style={styles.box2}>
+      <TouchableOpacity onPress={openModal}>
         <TrendingCardComponent source={require("../assets/avater.png")}/>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={openModal}>
         <TrendingCardComponent source={require("../assets/lucifer.png")}/>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={openModal}>
         <TrendingCardComponent source={require("../assets/morbius.png")}/>
+        </TouchableOpacity>
+        
       </View>
 
       <Text style={styles.text3}>Recommended</Text>
 
     <ScrollView horizontal={true}>
       <View style={styles.box3}>
+      <TouchableOpacity onPress={openModal}>
         <RecommendedCardComponent source={require("../assets/flip.png")}/>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={openModal}>
         <RecommendedCardComponent source={require("../assets/fullmovie.png")}/>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={openModal}>
         <RecommendedCardComponent source={require("../assets/flop.png")}/>
+        </TouchableOpacity>
       </View>
     </ScrollView>
 
     <Text style={styles.text3}>Top Movies</Text>
 
+
     <ScrollView horizontal={true}>
       <View style={styles.box3}>
+      <TouchableOpacity onPress={openModal}>
         <RecommendedCardComponent source={require("../assets/action.png")}/>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={openModal}>
         <RecommendedCardComponent source={require("../assets/india.png")}/>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={openModal}>
         <RecommendedCardComponent source={require("../assets/nigeria.png")}/>
+        </TouchableOpacity>
       </View>
     </ScrollView>
+
+    <BottomModal visible={modalVisible} onClose={closeModal} />
       
     </View>
   )
