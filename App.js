@@ -1,52 +1,82 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View,TouchableOpacity } from 'react-native';
-import HomeScreen from './Screens/HomeScreen';
-import * as React from 'react';
+import React from 'react';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
+import HomeScreen from './Screens/HomeScreen';
 import ProfileScreen from './Screens/ProfileScreen';
+import { LinearGradient } from 'expo-linear-gradient';
 import { NavigationContainer } from '@react-navigation/native';
 
 const Tab = createBottomTabNavigator();
 
 const FloatingTab = ({ label, icon, onPress, isFocused }) => (
   <TouchableOpacity
-    style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
+    style={styles.floatingTabContainer}
     onPress={onPress}
   >
-    <View
-      style={{
-        width: 60,
-        height: 60,
-        borderRadius: 30,
-        backgroundColor: isFocused ? '#3498db' : 'transparent',
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderWidth: 3,
-        borderColor: '#3498db',
-      }}
+    <LinearGradient
+      colors={['#8A2387', '#E94057', '#F27121']}
+      style={styles.gradientBackground}
     >
-      <Icon name={icon} size={24} color={isFocused ? '#fff' : '#3498db'} />
-    </View>
-    <Text style={{ marginTop: 6, color: isFocused ? '#3498db' : 'black' }}>{label}</Text>
+      <View style={styles.floatingTab}>
+        <Icon name={icon} size={24} color="#fff" />
+      </View>
+    </LinearGradient>
+    <Text style={[styles.label, { color: isFocused ? '#3498db' : 'black' }]}>{label}</Text>
   </TouchableOpacity>
 );
 
-
 const SettingsScreen = () => (
-  <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+  <View style={styles.screenContainer}>
     <Text>Settings Screen</Text>
   </View>
 );
 
+const styles = StyleSheet.create({
+  floatingTabContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  gradientBackground: {
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 3,
+    borderColor: '#3498db',
+  },
+  floatingTab: {
+    position: 'relative',
+    top: -5, // Adjust this value to move the icon further up
+  },
+  label: {
+    marginTop: 6,
+  },
+  screenContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
 
+const navTheme = {
+  colors: {
+    background: "#171717"
+  }
+};
 
 const App = () => {
   return (
-    <NavigationContainer>
+    <NavigationContainer  >
       <Tab.Navigator
         tabBarOptions={{
           showLabel: false,
+        }}
+        style={{
+          backgroundColor: 'transparent', // Set this to your gradient background color
+          borderTopWidth: 0, // Remove the top border
         }}
       >
         <Tab.Screen
@@ -63,21 +93,35 @@ const App = () => {
               />
             ),
             headerShown: false,
-        
           })}
         />
         <Tab.Screen
           name="Settings"
           component={SettingsScreen}
           options={{
-            tabBarIcon: ({ color, size }) => <Icon name="settings" size={size} color={color} />,
+            tabBarIcon: ({ color, size }) => (
+              <LinearGradient
+                colors={['#8A2387', '#E94057', '#F27121']}
+                style={styles.iconBackground}
+              >
+                <Icon name="settings" size={size} color="#fff" />
+              </LinearGradient>
+            ),
+            barStyle: { backgroundColor: '#E94057' },
           }}
         />
         <Tab.Screen
           name="Profile"
           component={ProfileScreen}
           options={{
-            tabBarIcon: ({ color, size }) => <Icon name="person" size={size} color={color} />,
+            tabBarIcon: ({ color, size }) => (
+              <LinearGradient
+                colors={['#8A2387', '#E94057', '#F27121']}
+                style={styles.iconBackground}
+              >
+                <Icon name="person" size={size} color="#fff" />
+              </LinearGradient>
+            ),
           }}
         />
       </Tab.Navigator>
