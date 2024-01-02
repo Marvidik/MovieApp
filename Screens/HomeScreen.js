@@ -36,7 +36,7 @@ export default function HomeScreen() {
       </View>
     </ScrollView>
 
-    <Text style={styles.text3}>Recommended</Text>
+    <Text style={styles.text3}>Top Movies</Text>
 
     <ScrollView horizontal={true}>
       <View style={styles.box3}>
