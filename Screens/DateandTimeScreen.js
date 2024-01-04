@@ -1,9 +1,11 @@
-import { View, Text,StyleSheet,Image, ImageBackground } from 'react-native'
+import { View, Text,StyleSheet,Image, ImageBackground,TouchableOpacity } from 'react-native'
 import React from 'react'
 import SelectionComponents from '../Components/SelectionComponents'
 import { LinearGradient } from 'expo-linear-gradient';
 import BottonComponent from '../Components/BottonComponent';
 import TimeSelectionComponent from '../Components/TimeSelectionComponent';
+import { useNavigation } from '@react-navigation/native';
+import SnacksScreen from './SnacksScreen';
 
 export default function DateandTimeScreen() {
     const all =<LinearGradient
@@ -11,6 +13,12 @@ colors={['#8A2387', '#E94057', '#F27121']}
 start={{ x: 0, y: 0 }}
 end={{ x: 1, y: 0 }}
 ></LinearGradient>
+
+const navigation = useNavigation();
+
+  const navigateToOtherScreen = () => {
+    navigation.navigate('SnacksScreen'); // Replace 'OtherScreen' with the name of your screen
+  };
   return (
     <View style={styles.container}>
       <View>
@@ -38,9 +46,21 @@ end={{ x: 1, y: 0 }}
       </View>
       <Text style={styles.text4}>Time</Text>
       <View style={styles.box}>
+
+      <TouchableOpacity
+              style={styles.button}
+              onPress={navigateToOtherScreen}
+            >
       <TimeSelectionComponent  style2={{backgroundColor:'black'}} text={"10:00am"}/>
+      </TouchableOpacity>
         <TimeSelectionComponent  style2={{backgroundColor:'black'}} text={"2:00pm"}/>
+        <TouchableOpacity
+              style={styles.button}
+              onPress={navigateToOtherScreen}
+            >
+
         <TimeSelectionComponent  style2={{backgroundColor:'#E94057'}} text={"4:00pm"}/>
+            </TouchableOpacity>
         <TimeSelectionComponent  style2={{backgroundColor:'black'}} text={"6:00pm"}/>
         <TimeSelectionComponent  style2={{backgroundColor:'black'}} text={"8:00pm"}/>
         <TimeSelectionComponent  style2={{backgroundColor:'black'}} text={"1:00am"}/>

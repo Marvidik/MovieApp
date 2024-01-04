@@ -8,6 +8,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { NavigationContainer } from '@react-navigation/native';
 import DateandTimeScreen from './Screens/DateandTimeScreen';
 import { createStackNavigator } from '@react-navigation/stack';
+import SnacksScreen from './Screens/SnacksScreen';
 
 
 const Stack = createStackNavigator();
@@ -56,6 +57,7 @@ const TicketsStack = () => (
   <Stack.Navigator>
     <Stack.Screen name="Tickets" component={HomeScreen} options={{ headerShown: false }}/>
     <Stack.Screen name="DateandTimeScreen" component={DateandTimeScreen} options={{ headerShown: false }}/>
+    <Stack.Screen name="SnacksScreen" component={SnacksScreen} options={{ headerShown: false }}/>
   </Stack.Navigator>
 );
 
