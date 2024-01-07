@@ -5,6 +5,7 @@ import SnacksComponent from '../Components/SnacksComponent'
 import ButtonComponent from '../Components/BottonComponent';
 import { useNavigation } from '@react-navigation/native';
 import PaymentModal from '../Components/PaymentModal';
+import GetBottomComponent from '../Components/GetBottomComponent';
 
 export default function SnacksScreen() {
   const [modalVisible, setModalVisible] = useState(false);
@@ -48,12 +49,17 @@ export default function SnacksScreen() {
         </View>
         <SnacksComponent   size={"M"}  amount={"32"} />
       </View>
-      <TouchableOpacity
+
+      <View  style={styles.button}>
+         <GetBottomComponent onPress={openModal}/>
+      </View>
+      
+      {/* <TouchableOpacity
               style={styles.button}
               onPress={openModal}
             >
       <ButtonComponent  text={"Check Out"}/>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
 
       <PaymentModal visible={modalVisible} onClose={closeModal}/>
     </View>
@@ -66,7 +72,7 @@ const styles = StyleSheet.create({
         paddingTop:44,
         backgroundColor:"black",
         flex:1,
-        paddingHorizontal:20
+        
     },
     text:{
         color:"white",
@@ -81,7 +87,8 @@ const styles = StyleSheet.create({
     },
     box1:{
         flexDirection:"row",
-        justifyContent:"space-between"
+        justifyContent:"space-between",
+        paddingHorizontal:20
     },
     box2:{
         height:60,
@@ -94,6 +101,7 @@ const styles = StyleSheet.create({
     box3:{
         paddingTop:40.97,
         flexDirection:"row",
+        paddingHorizontal:20
       
     },
     pop:{
@@ -108,6 +116,6 @@ const styles = StyleSheet.create({
     },
     button:{
       position:"relative",
-      top:100
+      top:50
     }
 })
