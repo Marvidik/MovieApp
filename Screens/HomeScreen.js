@@ -42,6 +42,7 @@ export default function HomeScreen() {
         </TouchableOpacity>
         
       </View>
+    <ScrollView>
 
       <Text style={styles.text3}>Recommended</Text>
 
@@ -74,6 +75,23 @@ export default function HomeScreen() {
         <RecommendedCardComponent source={require("../assets/nigeria.png")}/>
         </TouchableOpacity>
       </View>
+    </ScrollView>
+
+    <Text style={styles.text3}>Top Naija</Text>
+
+    <ScrollView horizontal={true}>
+      <View style={styles.box3}>
+      <TouchableOpacity onPress={openModal}>
+        <RecommendedCardComponent source={require("../assets/flip.png")}/>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={openModal}>
+        <RecommendedCardComponent source={require("../assets/fullmovie.png")}/>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={openModal}>
+        <RecommendedCardComponent source={require("../assets/flop.png")}/>
+        </TouchableOpacity>
+      </View>
+    </ScrollView>
     </ScrollView>
 
     <BottomModal visible={modalVisible} onClose={closeModal} />
