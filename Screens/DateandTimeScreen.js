@@ -59,7 +59,7 @@ const navigation = useNavigation();
               style={styles.button}
               onPress={navigateToOtherScreen}
             >
-      <ButtonComponent  text={"Check Out"}/>
+      <ButtonComponent  text={"Reservation"}/>
       </TouchableOpacity>
 
       </View>

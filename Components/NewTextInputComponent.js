@@ -20,7 +20,6 @@ const styles = StyleSheet.create({
         
     },
     input:{
-        marginTop:20,
         backgroundColor:"#1B1A1A",
         borderWidth:1,
         borderColor:'#8A2387',

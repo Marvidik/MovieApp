@@ -22,7 +22,7 @@ export default function HomeScreen() {
      
       <View style={styles.box1}>
         <ImageIconComponent source={require("../assets/profile.jpg")}/>
-        <Text style={styles.text}>Amandas Prime Movies</Text>
+        <Text style={styles.text}>Mandys Movies</Text>
         <ImageIconComponent source={require("../assets/carbon_notification.png")}/>
       </View>
 

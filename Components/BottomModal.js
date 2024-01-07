@@ -32,9 +32,17 @@ const BottomModal = ({ visible, onClose }) => {
             </TouchableOpacity>
             <Text style={styles.shape}>Location</Text>
             <Text style={styles.shape2}>Selected Cinema/Location For The Movie</Text>
+
+            <View style={styles.allinput}>
             <NewTextInputComponent place={"Lagos State, Nigeria"}/>
+            </View>
+            <View style={styles.allinput}>
             <NewTextInputComponent  place={"Genesis Cinema"}/>
+            </View>
+            <View style={styles.allinput}>
+
             <NewTextInputComponent place={"2 Stella Street Victorial Island, Lagos"}/>
+            </View>
 
             <TouchableOpacity
               style={styles.button}
@@ -74,6 +82,9 @@ const styles = StyleSheet.create({
   shape2:{
     color:"white",
     alignSelf:"center"
+  },
+  allinput:{
+    paddingTop:30,
   }
 });
 

@@ -9,6 +9,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import DateandTimeScreen from './Screens/DateandTimeScreen';
 import { createStackNavigator } from '@react-navigation/stack';
 import SnacksScreen from './Screens/SnacksScreen';
+import MovieTicketScreen from './Screens/MovieTicketScreen';
 
 
 const Stack = createStackNavigator();
@@ -47,19 +48,6 @@ const navTheme = {
   ></LinearGradient>
   }
 };
-const all =<LinearGradient
-colors={['#8A2387', '#E94057', '#F27121']}
-start={{ x: 0, y: 0 }}
-end={{ x: 1, y: 0 }}
-></LinearGradient>
-
-const TicketsStack = () => (
-  <Stack.Navigator>
-    <Stack.Screen name="Tickets" component={HomeScreen} options={{ headerShown: false }}/>
-    <Stack.Screen name="DateandTimeScreen" component={DateandTimeScreen} options={{ headerShown: false }}/>
-    <Stack.Screen name="SnacksScreen" component={SnacksScreen} options={{ headerShown: false }}/>
-  </Stack.Navigator>
-);
 
 const App = () => {
   return (
@@ -68,6 +56,7 @@ const App = () => {
         <Stack.Screen name="Tickets" component={HomeScreen} options={{ headerShown: false }}/>
         <Stack.Screen name="DateandTimeScreen" component={DateandTimeScreen} options={{ headerShown: false }}/>
         <Stack.Screen name="SnacksScreen" component={SnacksScreen} options={{ headerShown: false }}/>
+        <Stack.Screen name="MovieTicketScreen" component={MovieTicketScreen} options={{ headerShown: false }}/>
       </Stack.Navigator>
       </NavigationContainer>
       

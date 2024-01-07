@@ -1,11 +1,18 @@
-import { View, Text,StyleSheet,Image,TouchableOpacity } from 'react-native'
-import React from 'react'
+import { View, Text,StyleSheet,Image,TouchableOpacity} from 'react-native'
+import React, {useState} from 'react'
 import IconComponent from '../Components/IconComponent'
 import SnacksComponent from '../Components/SnacksComponent'
 import ButtonComponent from '../Components/BottonComponent';
 import { useNavigation } from '@react-navigation/native';
+import PaymentModal from '../Components/PaymentModal';
 
 export default function SnacksScreen() {
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const openModal = () => setModalVisible(true);
+  const closeModal = () => setModalVisible(false);
+
+
   const navigation = useNavigation();
   const navigateToOtherScreen = () => {
     navigation.navigate('SnacksScreen'); // Replace 'OntherScreen' with the name of your screen
@@ -43,10 +50,12 @@ export default function SnacksScreen() {
       </View>
       <TouchableOpacity
               style={styles.button}
-              onPress={navigateToOtherScreen}
+              onPress={openModal}
             >
       <ButtonComponent  text={"Check Out"}/>
       </TouchableOpacity>
+
+      <PaymentModal visible={modalVisible} onClose={closeModal}/>
     </View>
   )
 }
@@ -98,6 +107,7 @@ const styles = StyleSheet.create({
         paddingBottom:20
     },
     button:{
-      
+      position:"relative",
+      top:100
     }
 })
