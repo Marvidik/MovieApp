@@ -19,15 +19,15 @@ export default function HomeScreen() {
   return (
     
     <View style={styles.component}>
-      
+     
       <View style={styles.box1}>
         <ImageIconComponent source={require("../assets/profile.jpg")}/>
-        <Text style={styles.text}>Choose Movies</Text>
+        <Text style={styles.text}>Amandas Prime Movies</Text>
         <ImageIconComponent source={require("../assets/carbon_notification.png")}/>
       </View>
 
       <TextInputComponent/>
-
+      <ScrollView>
       <Text style={styles.text2}>Trending Now</Text>
 
       <View style={styles.box2}>
@@ -42,7 +42,7 @@ export default function HomeScreen() {
         </TouchableOpacity>
         
       </View>
-    <ScrollView>
+    
 
       <Text style={styles.text3}>Recommended</Text>
 

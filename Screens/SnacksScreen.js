@@ -1,9 +1,15 @@
-import { View, Text,StyleSheet,Image } from 'react-native'
+import { View, Text,StyleSheet,Image,TouchableOpacity } from 'react-native'
 import React from 'react'
 import IconComponent from '../Components/IconComponent'
 import SnacksComponent from '../Components/SnacksComponent'
+import ButtonComponent from '../Components/BottonComponent';
+import { useNavigation } from '@react-navigation/native';
 
 export default function SnacksScreen() {
+  const navigation = useNavigation();
+  const navigateToOtherScreen = () => {
+    navigation.navigate('SnacksScreen'); // Replace 'OntherScreen' with the name of your screen
+  };
   return (
     <View  style={styles.container}>
       <View style={styles.box1}>
@@ -12,9 +18,9 @@ export default function SnacksScreen() {
         <IconComponent source={require("../assets/first.png")}/>
       </View>
       <View style={styles.box2}>
-        <Text style={styles.text2}>The snack will be available on the movie date selected</Text>
-        <Text style={styles.text2}>by you. kindly come along with your ticket t0</Text>
-        <Text style={styles.text2}>claim your snacks.</Text>
+        <Text style={styles.text2}>The snack will be available on the movie date</Text>
+        <Text style={styles.text2}> selected by you. kindly come along with your </Text>
+        <Text style={styles.text2}> ticket to claim your snacks.</Text>
       </View>
 
       <View style={styles.box3}>
@@ -35,6 +41,12 @@ export default function SnacksScreen() {
         </View>
         <SnacksComponent   size={"M"}  amount={"32"} />
       </View>
+      <TouchableOpacity
+              style={styles.button}
+              onPress={navigateToOtherScreen}
+            >
+      <ButtonComponent  text={"Check Out"}/>
+      </TouchableOpacity>
     </View>
   )
 }
@@ -67,7 +79,8 @@ const styles = StyleSheet.create({
         width:320,
         paddingTop:31.5,
         paddingHorizontal:10,
-        alignItems:"center"
+        alignItems:"center",
+        alignSelf:"center"
     },
     box3:{
         paddingTop:40.97,
@@ -83,5 +96,8 @@ const styles = StyleSheet.create({
         fontWeight:"700",
         alignSelf:"center",
         paddingBottom:20
+    },
+    button:{
+      
     }
 })

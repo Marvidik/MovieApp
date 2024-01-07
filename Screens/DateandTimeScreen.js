@@ -6,6 +6,7 @@ import BottonComponent from '../Components/BottonComponent';
 import TimeSelectionComponent from '../Components/TimeSelectionComponent';
 import { useNavigation } from '@react-navigation/native';
 import SnacksScreen from './SnacksScreen';
+import ButtonComponent from '../Components/BottonComponent';
 
 export default function DateandTimeScreen() {
     const all =<LinearGradient
@@ -16,8 +17,8 @@ end={{ x: 1, y: 0 }}
 
 const navigation = useNavigation();
 
-  const navigateToOtherScreen = () => {
-    navigation.navigate('SnacksScreen'); // Replace 'OtherScreen' with the name of your screen
+ const navigateToOtherScreen = () => {
+    navigation.navigate('SnacksScreen'); // Replace 'OntherScreen' with the name of your screen
   };
   return (
     <View style={styles.container}>
@@ -46,25 +47,20 @@ const navigation = useNavigation();
       </View>
       <Text style={styles.text4}>Time</Text>
       <View style={styles.box}>
+      <TimeSelectionComponent  style2={{backgroundColor:'black'}} text={"10:00am"}/>
+        <TimeSelectionComponent  style2={{backgroundColor:'black'}} text={"2:00pm"}/>
+        <TimeSelectionComponent  style2={{backgroundColor:'#E94057'}} text={"4:00pm"}/>
+        <TimeSelectionComponent  style2={{backgroundColor:'black'}} text={"6:00pm"}/>
+        <TimeSelectionComponent  style2={{backgroundColor:'black'}} text={"8:00pm"}/>
+        <TimeSelectionComponent  style2={{backgroundColor:'black'}} text={"1:00am"}/>
+      </View>
 
       <TouchableOpacity
               style={styles.button}
               onPress={navigateToOtherScreen}
             >
-      <TimeSelectionComponent  style2={{backgroundColor:'black'}} text={"10:00am"}/>
+      <ButtonComponent  text={"Check Out"}/>
       </TouchableOpacity>
-        <TimeSelectionComponent  style2={{backgroundColor:'black'}} text={"2:00pm"}/>
-        <TouchableOpacity
-              style={styles.button}
-              onPress={navigateToOtherScreen}
-            >
-
-        <TimeSelectionComponent  style2={{backgroundColor:'#E94057'}} text={"4:00pm"}/>
-            </TouchableOpacity>
-        <TimeSelectionComponent  style2={{backgroundColor:'black'}} text={"6:00pm"}/>
-        <TimeSelectionComponent  style2={{backgroundColor:'black'}} text={"8:00pm"}/>
-        <TimeSelectionComponent  style2={{backgroundColor:'black'}} text={"1:00am"}/>
-      </View>
 
       </View>
 
@@ -119,5 +115,6 @@ const styles = StyleSheet.create({
       box:{
         flexDirection:"row",
         paddingHorizontal:20
-      }
+      },
+      button:{}
 })
