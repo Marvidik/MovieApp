@@ -4,7 +4,6 @@
 end={{ x: 1, y: 0 }}
       style={{ flex: 1 }}
     >
-      <NavigationContainer  >
         <Tab.Navigator
           screenOptions={{
             tabBarStyle: {
@@ -57,5 +56,4 @@ end={{ x: 1, y: 0 }}
           }}
         />
         </Tab.Navigator>
-      </NavigationContainer>
        </LinearGradient>
