@@ -7,9 +7,12 @@ import RecommendedCardComponent from '../Components/RecommendedCardComponent'
 import BottomModal from '../Components/BottomModal';
 
 
+// The main Screen and the apps home screen
 
 
 export default function HomeScreen() {
+
+  // this is used to call up the modal on the home scren
   const [modalVisible, setModalVisible] = useState(false);
 
   const openModal = () => setModalVisible(true);
